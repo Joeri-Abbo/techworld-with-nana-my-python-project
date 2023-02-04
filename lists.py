@@ -1,4 +1,4 @@
-my_list = ["January", "February", "March", ]
+my_list = ["January", "February", "March"]
 print(
     my_list[2],
 )
