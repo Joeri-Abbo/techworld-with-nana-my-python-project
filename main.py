@@ -10,6 +10,8 @@ def validate_and_execute():
     try:
 
         user_input_number = int(user_input)
+
+        # We want to do conversion only for positive integers
         if user_input_number > 0:
             calculated_value = days_to_units(user_input_number)
             print(calculated_value)
