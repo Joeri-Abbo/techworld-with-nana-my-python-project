@@ -29,3 +29,11 @@ while user_input != "exit":
     user_input = input("Hey user, enter a number of days and I will convert it to hours!\n")
     for num_of_days in set(user_input.split(", ")):
         validate_and_execute()
+
+print("some text")
+input("enter value")
+set([1, 3, 4])
+int("20")
+
+"2, 3".split()
+[1, 3, 4].count()
