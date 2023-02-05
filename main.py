@@ -1,7 +1,14 @@
-import requests
+import boto3
 
-response = requests.get("https://gitlab.com/api/v4/users/nanuchi/projects")
-my_projects = response.json()
+client = boto3.client(
+    'ec2',
+    # region_name='us-east-1'
+)
+all_availability_vpcs = client.describe_vpcs()
+vpcs = all_availability_vpcs["Vpcs"]
 
-for project in my_projects:
-    print(f"Project name: {project['name']} Project url: {project['web_url']}")
+for vpc in vpcs:
+    print(vpc["VpcId"])
+    cidr_block_association_set = vpc["CidrBlockAssociationSet"]
+    for cidr_block_association in cidr_block_association_set:
+        print(cidr_block_association["CidrBlockState"])
