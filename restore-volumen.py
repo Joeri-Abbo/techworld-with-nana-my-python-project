@@ -59,7 +59,7 @@ while True:
     )
     print(volume_status["Volumes"][0]["State"])
     if volume_status["Volumes"][0]["State"] == "available":
-        print(volume_status["Volumes"][0]["State"])
+        print(volume_status["Volumes"][0]["State"]  )
         ec2_resource.Instance(instance_id).attach_volume(
             Device='/dev/xvdb',
             VolumeId=new_volume["VolumeId"]

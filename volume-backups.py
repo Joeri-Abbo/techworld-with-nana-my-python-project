@@ -21,10 +21,13 @@ volumes = ec2_client.describe_volumes(
 
 def create_volume_snapshots():
     for volume in volumes['Volumes']:
-        new_snapshot = ec2_client.create_snapshot(
-            VolumeId=volume['VolumeId']
-        )
-        print(new_snapshot)
+        try:
+            new_snapshot = ec2_client.create_snapshot(
+                VolumeId=volume['VolumeId']
+            )
+            print(new_snapshot)
+        except:
+            pass
 
 
 schedule.every(5).days.do(create_volume_snapshots)
