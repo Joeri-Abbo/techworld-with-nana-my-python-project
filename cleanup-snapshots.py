@@ -1,5 +1,4 @@
 import boto3
-import schedule
 from operator import itemgetter
 
 region = 'eu-west-3'
